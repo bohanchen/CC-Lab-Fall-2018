@@ -9,8 +9,8 @@ int led6 = 8;
 int button = 7;
 int value;
 
-boolean buttonUp = true;
-boolean state = false;
+boolean buttonUp = true; //flag to control the button
+boolean state = false; //flag to check the state of LED
 
 void setup() {
   // put your setup code here, to run once:
@@ -28,19 +28,15 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  
-  
   value = digitalRead(button);
   //Serial.println(value);
-  if (value != HIGH && buttonUp == true){
-    state = !state;
-   
-    buttonUp = false;
+  if (value != HIGH && buttonUp == true){ //the button is not pushed
+    state = !state; //reverse the state of led
+    buttonUp = false; //set flag to false
     
-  } 
-  else if (value == HIGH && buttonUp != true){
-    
-    buttonUp = true;
+  }
+  else if (value == HIGH && buttonUp != true){ //the button is pushed
+    buttonUp = true; // set flag back
   }
   
   Serial.println(state);
@@ -52,15 +48,17 @@ void loop() {
 }
 
 void ODD(){
+    //Turn on odd number led (1,3,5)
     digitalWrite(led1, HIGH);
-    digitalWrite(led2, LOW); //HIGH IS ON
-    digitalWrite(led3, HIGH); //HIGH IS ON
-    digitalWrite(led4, LOW); //HIGH IS ON
-    digitalWrite(led5, HIGH); //HIGH IS ON
-    digitalWrite(led6, LOW); //HIGH IS ON
+    digitalWrite(led2, LOW); 
+    digitalWrite(led3, HIGH); 
+    digitalWrite(led4, LOW); 
+    digitalWrite(led5, HIGH); 
+    digitalWrite(led6, LOW); 
 }
 
 void EVEN(){
+    //Turn on even number led (2,4,6)
     digitalWrite(led1, LOW); //HIGH IS ON
     digitalWrite(led2, HIGH); //HIGH IS ON
     digitalWrite(led3, LOW); //HIGH IS ON
