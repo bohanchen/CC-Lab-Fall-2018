@@ -12,5 +12,8 @@ However, it is quiet diffcult to get the RGB LED to work correctly. It takes me 
 ## Video:
 https://vimeo.com/289204077
 
+## Github:
+https://github.com/bohanchen/CC-Lab-Fall-2018/tree/master/Warning_LED
+
 Bohan Chen
 09/10/2018
