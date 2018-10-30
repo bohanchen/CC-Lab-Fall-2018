@@ -95,7 +95,7 @@ var myp5 = new p5(s, 'fractal-tree-2');
 function init(){
 //    console.log("111111")
     $('#click-1').click(function(){
-        $('.contents-1').toggle("slow")
+        $('.contents-1').toggle("2000")
     })
 }
 
