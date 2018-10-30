@@ -10,6 +10,7 @@ import processing.serial.*;
 Minim minim;
 AudioPlayer player;
 AudioPlayer player2;
+//AudioSample player2;
 
 
 Serial myPort;  
@@ -23,13 +24,16 @@ void setup(){
   size(1280,720); // size of processing window
   background(0);// setting background color to black
   printArray(Serial.list());
-  String portName = Serial.list()[13];
+  String portName = Serial.list()[14];
   myPort = new Serial(this, portName, 9600);
   myPort.bufferUntil('\n');
   
   minim = new Minim(this);
   player = minim.loadFile("Nebula.mp3");
   player2 = minim.loadFile("drump1.mp3");
+  player2 = minim.loadFile("Nebula.mp3");
+  //player2 = minim.loadSample("drump1.mp3", 90);
+
 
   //player2.play();
 
@@ -59,9 +63,9 @@ void draw() {
     line( x1, 550 + player2.right.get(i)*50, x2, 550 + player.right.get(i+1)*50 );
   }
   
-  float posx = map(player2.position(), 0, player2.length(), 0, width);
-  stroke(26,83,92);
-  line(posx, 0, posx, height);
+  //float posx = map(player2.position(), 0, player2.length(), 0, width);
+  //stroke(26,83,92);
+  //line(posx, 0, posx, height);
   
   
   while (myPort.available() >0){
@@ -70,19 +74,17 @@ void draw() {
       //println(data);
       
       println(val);
-      if (val>90 & player.isPlaying()){
-        player2.pause();
-        //player.play();
-      }
-      else if (val<70 & val>0){
-        player2.rewind();
-        //delay(200);
+      if (val<20 & val>0){
+        //player2.rewind();
         player2.play();
-        //counter = 1;
-        //println("the counter is "+counter);
-      } 
+        //player2.trigger();
+      } else{
+        
+        player2.pause();
+        player2.rewind();
+      }
     }
-  } //end while loop
+  }
   
 }
 
@@ -91,24 +93,4 @@ void serialEvent(Serial myPort) {
  
   data=myPort.readStringUntil('\n').trim();
   
-  
-}
-
-void keyPressed()
-{
-  if ( player.isPlaying() )
-  {
-    player.pause();
-  }
-  // if the player is at the end of the file,
-  // we have to rewind it before telling it to play again
-  else if ( player.position() == player.length() )
-  {
-    player.rewind();
-    player.play();
-  }
-  else
-  {
-    player.play();
-  }
 }

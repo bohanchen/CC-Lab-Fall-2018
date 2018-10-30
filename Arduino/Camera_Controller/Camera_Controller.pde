@@ -7,10 +7,11 @@ PImage bg;      // add the background img
 void setup(){
   size(500,500);
   bg = loadImage("icon.png");
+ 
   String portName[] = Serial.list(); //check the port name
-  println(portName[11]);
+  println(portName[9]);
   
-  myPort = new Serial(this, portName[11], 9600);
+  myPort = new Serial(this, portName[9], 9600);
 }
 
 

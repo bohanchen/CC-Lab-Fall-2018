@@ -17,7 +17,7 @@ void loop() {
      char incomingByte = Serial.read();
      if(incomingByte == '1'){
       digitalWrite(ledPin, HIGH);
-      servo.write(90);
+      servo.write(180);
 
      }
      
