@@ -62,7 +62,7 @@ function getAirQuality() {
         bars.enter()
             .append("rect")
             .attr("x", function (d, i) {
-                return i * 10;
+                return i*9;
             })
             .attr("y", function (d) {
                 return height - y(d, y) - 20
@@ -74,7 +74,7 @@ function getAirQuality() {
             .attr("height", function (d) {
                 return y(d)
             })
-            .attr("width", 10)
+            .attr("width", 1)
             .attr("fill", function (d) {
                 return color(d)
             })
