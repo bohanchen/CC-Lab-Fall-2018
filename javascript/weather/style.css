@@ -1,0 +1,43 @@
+    body{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      height: 100vh;
+      box-sizing: border-box;
+      margin: 0px;
+      padding: 2rem;
+    }
+
+    .circle{
+      width: 10px;
+      height: 10px;
+      background-color: blue;
+      border-radius: 1000px;
+      transition: all 1s ease;
+    }
+
+    .scale{
+      transform: scale(1.2);
+    }
+
+    .text{
+      font-family: sans-serif;
+      font-weight: 200;
+      font-size: 2rem;
+      width: 100vw;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    #tempText{
+      color: blue;
+    }
+
+    #windText{
+      color: lightblue;
+    }
+
+    #wind{
+      background-color: lightblue;
+    }

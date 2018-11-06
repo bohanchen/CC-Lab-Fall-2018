@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Get Weather Demo</title>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="tempText" class="text"></div>
+
+<div id="circles">
+  <div id="temp" class="circle"></div>
+  <div id="wind" class="circle"></div>
+</div>
+
+<div id="windText" class="text"></div>
+ 
+<script>
+  $("document").ready(function(){
+    $.ajax({
+      url: "http://api.openweathermap.org/data/2.5/weather?q=New York&units=imperial&appid=ef3e268cbe387a39c451c064de7ff0c1",
+      success: function(data) {
+        console.log(data.main);
+        handleData(data)
+      }
+    });
+
+    var weatherText = $("#weather") 
+    var temp, wind
+
+    function handleData(data){
+      $("#tempText").html("the current temperature is " + data.main.temp + "°")
+      $("#windText").html("the current wind speed is " + data.wind.speed + " mph")
+
+      $("#temp").css("width", data.main.temp*6);
+      $("#temp").css("height", data.main.temp*6);
+
+      $("#wind").css("width", data.wind.speed*6);
+      $("#wind").css("height", data.wind.speed*6);
+    }
+  })
+
+</script>
+ 
+</body>
+</html>

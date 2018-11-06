@@ -1,4 +1,4 @@
-Created by Bohan Chen
+# CC LAB Assignment
 
-This is all the projects & code I did at the CC Lab, Fall 2018
+These are all the projects I did at CC Lab in Fall 2018
 @Parsons MFA Design and Technology

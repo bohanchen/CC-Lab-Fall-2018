@@ -74,7 +74,7 @@ function getAirQuality() {
             .attr("height", function (d) {
                 return y(d)
             })
-            .attr("width", 1)
+            .attr("width", 4)
             .attr("fill", function (d) {
                 return color(d)
             })
